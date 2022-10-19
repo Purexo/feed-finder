@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+
+<style>
+	#app ul {
+		white-space: nowrap;
+		padding: 0;
+	}
+	#app li {
+		list-style: none;
+		display: flex;
+		gap: 5px;
+		margin: 5px;
+	}
+</style>
+<body>
+
+<div id="app">
+	<p>No Feed founded</p>
+</div>
+
+<template id="link-row">
+	<li>
+		<img height="16" src="icons/RSS-Feed-Icon.png" alt="application/rss+xml" title="RSS" />
+		<img height="16" src="icons/Atom-Feed-Icon.png" alt="application/atom+xml" title="ATOM" />
+		<img height="16" src="icons/JSON-Feed-Icon.png" alt="application/feed+json" title="JSON Feed" />
+		<a href="{href}" target="_blank">{title}</a>
+	</li>
+</template>
+
+<template id="empty-state">
+	<p>No Feed founded</p>
+</template>
+
+<script src="popup_action.js" type="module"></script>
+</body>
+</html>

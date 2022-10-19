@@ -1,39 +1,46 @@
 {
-	"name": "Awesome Extension",
-	"version": "0.0.0",
-	"description": "An awesome new browser extension",
-	"homepage_url": "https://github.com/fregante/browser-extension-template",
-	"manifest_version": 3,
-	"minimum_chrome_version": "100",
-	"browser_specific_settings": {
-		"gecko": {
-			"id": "awesome-extension@notlmn.github.io",
-			"strict_min_version": "100.0"
-		}
-	},
-	"icons": {
-		"128": "icon.png"
-	},
-	"permissions": [
-		"storage"
-	],
-	"host_permissions": [
-		"https://github.com/*"
-	],
-	"content_scripts": [
-		{
-			"matches": [ "https://github.com/fregante/browser-extension-template/*" ],
-			"js": [ "content.js" ],
-			"css": [ "content.css" ],
-			"run_at": "document_end"
-		}
-	],
-	"options_ui": {
-		"browser_style": true,
-		"page": "options.html"
-	},
-	"background": {
-		"service_worker": "background.js",
-		"type": "module"
+  "name": "Feed Finder",
+  "version": "0.0.0",
+  "description": "Browser extension to display feed links of site (RSS / Atom / JSON Feed)",
+  "homepage_url": "https://github.com/Purexo/feed-finder",
+  "manifest_version": 3,
+  "minimum_chrome_version": "100",
+  "browser_specific_settings": {
+	"gecko": {
+	  "id": "rss-finder@Purexo.github.io",
+	  "strict_min_version": "100.0"
 	}
+  },
+  "icons": {
+	"256": "icons/RSS-Feed-Icon.png"
+  },
+  "permissions": [
+	"storage"
+  ],
+  "host_permissions": [
+	"http://*/*",
+	"https://*/*"
+  ],
+  "action": {
+	"default_icon": {
+	  "256": "icons/RSS-Feed-Icon.png"
+	},
+	"default_popup": "popup_action.html"
+  },
+  "content_scripts": [
+	{
+	  "matches": [
+		"http://*/*",
+		"https://*/*"
+	  ],
+	  "js": [
+		"content.js"
+	  ],
+	  "run_at": "document_end"
+	}
+  ],
+  "background": {
+	"service_worker": "background.js",
+	"type": "module"
+  }
 }
